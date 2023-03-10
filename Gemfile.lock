@@ -66,20 +66,49 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    activevalidators (6.0.0)
+      activemodel (>= 3.0)
+      countries (>= 1.2, < 4.0)
+      credit_card_validations (~> 3.2)
+      date_validator
+      mail
+      phony (~> 2.0)
+      rake
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
+    countries (3.1.0)
+      i18n_data (~> 0.11.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crass (1.0.6)
+    credit_card_validations (3.3.0)
+      activemodel (>= 3)
+      activesupport (>= 3)
     date (3.3.3)
+    date_validator (0.12.0)
+      activemodel (>= 3)
+      activesupport (>= 3)
     debug (1.7.1)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.11.0)
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -99,6 +128,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.18.0)
     msgpack (1.6.1)
+    multi_xml (0.6.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -114,6 +144,7 @@ GEM
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.6)
+    phony (2.20.2)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -168,6 +199,13 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    shoulda (4.0.0)
+      shoulda-context (~> 2.0)
+      shoulda-matchers (~> 4.0)
+    shoulda-context (2.0.0)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
+    sixarm_ruby_unaccent (1.2.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -185,6 +223,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode_utils (1.4.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -200,8 +239,12 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activevalidators
   bootsnap
   debug
+  factory_bot_rails
+  faker
+  httparty
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -209,6 +252,8 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-controller-testing
   rspec-rails
+  shoulda
+  shoulda-matchers
   sprockets-rails
   stimulus-rails
   turbo-rails

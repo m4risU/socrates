@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get "/welcome/index", to: "welcome#index"
+
+  draw 'webhook_routes'
 end
+
