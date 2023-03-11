@@ -4,7 +4,7 @@
 #
 #   validates :youtube_url, url: { host: /(youtube\.com|youtu\.be)\Z/i }
 #
-class Webhooks::Webhook::UrlValidator < ActiveModel::EachValidator
+class UrlValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
 

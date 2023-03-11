@@ -1,0 +1,27 @@
+<div id="<%= dom_id webhook %>">
+  <p>
+    <strong>Url:</strong>
+    <%= webhook.url %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= webhook.name %>
+  </p>
+
+  <p>
+    <strong>Event:</strong>
+    <%= webhook.event %>
+  </p>
+
+  <p>
+    <strong>Secret:</strong>
+    <%= webhook.secret %>
+  </p>
+
+  <p>
+    <strong>Curl command to callback:</strong>
+    <pre><%= webhook.curl_to_callback_example %></pre>
+  </p>
+
+</div>

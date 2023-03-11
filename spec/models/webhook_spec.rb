@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Webhooks::Webhook, type: :model do
+RSpec.describe Webhook, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:url) }
     it { is_expected.to validate_presence_of(:event) }

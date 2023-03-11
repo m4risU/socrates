@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :webhook, class: 'Webhooks::Webhook' do
+  factory :webhook do
     url { Faker::Internet.url }
     event { 'order_created' }
     name { Faker::Name.name }
