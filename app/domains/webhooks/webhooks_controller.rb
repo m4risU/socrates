@@ -1,11 +1,26 @@
 class Webhooks::WebhooksController < ::ApplicationController
   def create
     @webhook = Webhooks::Webhook.new(webhook_params)
-    if @webhook.save
-      render json: @webhook
-    else
-      render json: @webhook.errors, status: :unprocessable_entity
+    respond_to do |format|
+      format.html do
+        if @webhook.save
+          redirect_to webhooks_webhooks_path, notice: "Webhook was successfully created."
+        else
+          render :new
+        end
+      end
+      format.json do
+        if @webhook.save
+          render json: @webhook
+        else
+          render json: @webhook.errors, status: :unprocessable_entity
+        end
+      end
     end
+  end
+
+  def new
+    @webhook = Webhooks::Webhook.new
   end
 
   def callback

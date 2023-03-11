@@ -1,4 +1,26 @@
 RSpec.describe Webhooks::WebhooksController, type: :request do
+  describe :POST, '/webhooks/webhooks.json' do
+    let(:webhook) { build(:webhook) }
+    let(:params) { { webhook:
+                      {
+                        url: webhook.url,
+                        event: webhook.event,
+                        name: webhook.name
+                      }
+                  } }
+
+    it 'creates a webhook' do
+      expect {
+        post '/webhooks/webhooks.json', params: params
+      }.to change(Webhooks::Webhook, :count).by(1)
+    end
+
+    it 'returns the webhook' do
+      post '/webhooks/webhooks.json', params: params
+      expect(response.body).to eq(Webhooks::Webhook.last.to_json)
+    end
+  end
+
   describe :POST, '/webhooks/webhooks' do
     let(:webhook) { build(:webhook) }
     let(:params) { { webhook:
@@ -15,9 +37,21 @@ RSpec.describe Webhooks::WebhooksController, type: :request do
       }.to change(Webhooks::Webhook, :count).by(1)
     end
 
-    it 'returns the webhook' do
+    it 'redirects to the webhook index' do
       post '/webhooks/webhooks', params: params
-      expect(response.body).to eq(Webhooks::Webhook.last.to_json)
+      expect(response).to redirect_to(webhooks_webhooks_path)
+    end
+  end
+
+  describe :GET, '/webhooks/webhooks/new' do
+    it 'renders the new template' do
+      get '/webhooks/webhooks/new'
+      expect(response).to render_template(:new)
+    end
+
+    it 'assigns a new webhook' do
+      get '/webhooks/webhooks/new'
+      expect(assigns(:webhook)).to be_a_new(Webhooks::Webhook)
     end
   end
 
