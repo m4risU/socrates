@@ -2,6 +2,7 @@ class WebhooksController < ApplicationController
   before_action :set_webhook, only: %i[ show edit update destroy ]
 
   skip_before_action :verify_authenticity_token, only: [:callback]
+  before_action :authenticate_user!, except: [:callback]
 
   # GET /webhooks or /webhooks.json
   def index

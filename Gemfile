@@ -58,6 +58,10 @@ gem 'jquery-rails'
 
 gem 'httparty'
 gem 'activevalidators'
+gem 'simple_form'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem 'state_machines-activerecord'
 
 group :development, :test do
   gem 'rspec-rails'
