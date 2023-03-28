@@ -1,1 +1,9 @@
 <%# add navigation links to this file %>
+<%= link_to "Home", root_path %>
+<%= link_to "Products", products_path %>
+<%= link_to "Webhooks", webhooks_path %>
+<%= link_to "New Product", new_product_path %>
+<%= link_to "New Webhook", new_webhook_path %>
+<%= link_to "Sign Up", new_user_registration_path %>
+<%= link_to "Sign In", new_user_session_path %>
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>

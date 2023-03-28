@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   resources :webhooks do
     collection do
       post 'callback/:event', to: "webhooks#callback", as: :callback
