@@ -298,6 +298,11 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sentry-rails (5.16.1)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.16.1)
+    sentry-ruby (5.16.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda (4.0.0)
       shoulda-context (~> 2.0)
       shoulda-matchers (~> 4.0)
@@ -378,6 +383,8 @@ DEPENDENCIES
   rails_layout
   rspec-rails
   sassc-rails
+  sentry-rails
+  sentry-ruby
   shoulda
   shoulda-matchers
   simple_form
