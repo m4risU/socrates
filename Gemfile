@@ -67,6 +67,7 @@ gem 'image_processing', '~> 1.2'
 
 gem "sentry-ruby"
 gem "sentry-rails"
+gem "aws-sdk-s3"
 
 group :development, :test do
   gem 'rspec-rails'
