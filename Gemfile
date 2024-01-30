@@ -65,6 +65,9 @@ gem 'state_machines-activerecord'
 
 gem 'image_processing', '~> 1.2'
 
+gem "sentry-ruby"
+gem "sentry-rails"
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
