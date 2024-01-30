@@ -1,7 +1,9 @@
 <div>
   <!-- uploaded images -->
   <% @uploads.each do |upload| %>
+    <%= link_to upload do %>
     <%= image_tag upload.image.variant(resize_to_limit: [150, nil]) %>
+    <% end %>
   <% end %>
 </div>
 

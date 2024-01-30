@@ -1,0 +1,8 @@
+<!-- show upload model -->
+<div>
+  <%= image_tag @upload.image.variant(resize_to_limit: [500, nil]) %>
+</div>
+
+<!-- link to destroy -->
+
+<%= link_to "Delete", @upload, method: :delete, data: { confirm: "Are you sure?" } %>

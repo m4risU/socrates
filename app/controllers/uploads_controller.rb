@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
     @upload = current_user.uploads.new(upload_params)
     if @upload.save
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'Upload was successfully created.' }
+        format.html { redirect_to uploads_path, notice: 'Upload was successfully created.' }
         format.json { render json: { message: 'success', uploadId: @upload.id }, status: 200 }
       end
     else
@@ -22,6 +22,19 @@ class UploadsController < ApplicationController
 
   def index
     @uploads = Upload.all
+  end
+
+  def show
+    @upload = Upload.find(params[:id])
+  end
+
+  def destroy
+    @upload = Upload.find(params[:id])
+    if @upload.destroy
+      redirect_to uploads_path, notice: 'Upload was successfully destroyed.'
+    else
+      redirect_to uploads_path, notice: 'Upload failed to destroy.'
+    end
   end
 
   private
