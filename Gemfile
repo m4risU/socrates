@@ -63,6 +63,8 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'state_machines-activerecord'
 
+gem 'image_processing', '~> 1.2'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
