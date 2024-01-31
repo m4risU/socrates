@@ -46,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -70,6 +70,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
+  config.params_authenticatable = [:database]
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
@@ -79,7 +80,7 @@ Devise.setup do |config|
   # enable this with :database unless you are using a custom strategy.
   # The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
-  config.http_authenticatable = [:database]
+  config.http_authenticatable = [:database, :token]
 
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true

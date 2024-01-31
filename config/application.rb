@@ -12,6 +12,8 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
+
+# require_relative "../app/middleware/catch_json_parse_errors"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -30,6 +32,8 @@ module Socrates
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # config.middleware.use CatchJsonParseErrors
 
     # Don't generate system test files.
     config.generators.system_tests = nil

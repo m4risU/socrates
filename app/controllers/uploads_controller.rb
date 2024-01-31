@@ -21,11 +21,15 @@ class UploadsController < ApplicationController
   end
 
   def index
-    @uploads = Upload.all
+    @uploads = current_user.uploads
+    respond_to do |format|
+      format.html
+      format.json { render json: @uploads.to_json(include: [:image]) }
+    end
   end
 
   def show
-    @upload = Upload.find(params[:id])
+    @upload = current_user.uploads.find(params[:id])
   end
 
   def destroy

@@ -44,6 +44,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'devise'
+gem 'devise-token_authenticatable'
 
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 gem 'bootstrap_form'
