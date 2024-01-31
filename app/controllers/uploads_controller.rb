@@ -1,5 +1,6 @@
 class UploadsController < ApplicationController
   before_action :authenticate_user!
+  include ActiveStorage::SetCurrent
 
   def new
     @upload = current_user.uploads.new
@@ -24,7 +25,7 @@ class UploadsController < ApplicationController
     @uploads = current_user.uploads
     respond_to do |format|
       format.html
-      format.json { render json: @uploads.to_json(include: [:image]) }
+      format.json { render json: @uploads.to_json(include: [image: {methods: :url}]) }
     end
   end
 
