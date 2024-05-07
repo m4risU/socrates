@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @test_cycle %>
+
+<div>
+  <%= link_to "Edit this test cycle", edit_test_cycle_path(@test_cycle) %> |
+  <%= link_to "Back to test cycles", test_cycles_path %>
+
+  <%= button_to "Destroy this test cycle", @test_cycle, method: :delete %>
+</div>

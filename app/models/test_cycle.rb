@@ -1,0 +1,2 @@
+class TestCycle < ApplicationRecord
+end
