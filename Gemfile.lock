@@ -115,6 +115,7 @@ GEM
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     builder (3.2.4)
+    cocoon (1.2.15)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     countries (3.1.0)
@@ -385,6 +386,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 4.0.0.alpha3.1)
   bootstrap_form
+  cocoon
   debug
   devise
   devise-token_authenticatable

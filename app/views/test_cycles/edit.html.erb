@@ -1,6 +1,38 @@
 <h1>Editing test cycle</h1>
 
-<%= render "form", test_cycle: @test_cycle %>
+<%= simple_form_for(@test_cycle) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <!-- show all @test_cycle.test_cycle_days -->
+
+
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :test_cycle_days do |test_cycle_day| %>
+
+
+
+      <%= test_cycle_day.input :day_number %>
+      <%= test_cycle_day.input :mucus %>
+      <%= test_cycle_day.input :temp %>
+      <%#= test_cycle_day.link_to_remove "remove this test cycle day" %>
+
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add test cycle day', f, :test_cycle_days %>
+    </div>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 
 <br>
 

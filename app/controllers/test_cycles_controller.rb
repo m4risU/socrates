@@ -17,6 +17,7 @@ class TestCyclesController < ApplicationController
 
   # GET /test_cycles/1/edit
   def edit
+    @test_cycle.test_cycle_days.build
   end
 
   # POST /test_cycles or /test_cycles.json
@@ -65,6 +66,6 @@ class TestCyclesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_cycle_params
-      params.require(:test_cycle).permit(:name)
+      params.require(:test_cycle).permit(:name, test_cycle_days_attributes: %i[id day_number mucus temp _destroy])
     end
 end
